@@ -546,7 +546,7 @@ Because the syntax of carrying out simplifying and preserving subsetting differs
 <table class="table table-striped" style="width: auto !important; ">
  <thead>
   <tr>
-   <th style="text-align:left;">   </th>
+   <th style="text-align:left;">  </th>
    <th style="text-align:center;"> Simplifying </th>
    <th style="text-align:center;"> Preserving </th>
   </tr>
@@ -767,7 +767,7 @@ getwd()
 ```
 
 ```
-## [1] "/home/joshi/Desktop/work/workshops/2023-June-Introduction-to-R-for-Bioinformatics/R"
+## [1] "/home/joshi/Desktop/work/workshops/2024-March-Introduction-to-R-for-Bioinformatics/R"
 ```
 
 ```{.r .colsel}
@@ -814,6 +814,15 @@ rep(1:3, each=3)
 
 ```
 ## [1] 1 1 1 2 2 2 3 3 3
+```
+
+```{.r .colsel}
+# get the unique values in a vector
+unique(c(4,4,4,5,5,5,6,6,6))
+```
+
+```
+## [1] 4 5 6
 ```
 
 ```{.r .colsel}
@@ -1060,7 +1069,7 @@ Truth Table
    <th style="text-align:center;"> x </th>
    <th style="text-align:center;"> y </th>
    <th style="text-align:center;"> x &amp;&amp; y </th>
-   <th style="text-align:center;"> x || y </th>
+   <th style="text-align:center;"> x &amp;#124;&amp;#124; y </th>
   </tr>
  </thead>
 <tbody>
@@ -1107,5 +1116,5 @@ Construct a list with three elements:
 
 1. A vector of numbers 1 through 15 in increments of 0.2
 2. A 5x5 matrix using the first 25 letters of the alphabet. (Hint: look at built-in constants)
-3. The first 10 elements of the built-in data frame "mtcars".
+3. The first 10 rows of the built-in data frame "mtcars".
 

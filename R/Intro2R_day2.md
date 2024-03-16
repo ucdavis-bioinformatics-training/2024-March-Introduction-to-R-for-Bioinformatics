@@ -1,7 +1,7 @@
 ---
 title: "R for Biologist - An Introduction to R"
 author: "Bioinformatics Core"
-date: "2023-06-13"
+date: "2024-03-15"
 output:
     html_document:
         keep_md: TRUE
@@ -22,6 +22,14 @@ background-color: lightyellow;
 
 
 
+```
+## Warning: `includeHTML()` was provided a `path` that appears to be a complete HTML document.
+## ✖ Path: embed_day2.html
+## ℹ Use `tags$iframe()` to include an HTML document. You can either ensure `path` is accessible in your app or document (see e.g. `shiny::addResourcePath()`) and pass the relative path to the `src` argument. Or you can read the contents of `path` and pass the contents to `srcdoc`.
+```
+
+```{=html}
+<!DOCTYPE html>
 
 <html>
 
@@ -543,23 +551,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -1187,7 +1189,7 @@ uses ** Ctrl + Enter ** on Windows, or ** Cmd + Enter ** on Mac.</p>
 zero or more arguments.</h4>
 <pre class="r colsel"><code># to find out the current working directory
 getwd()</code></pre>
-<pre><code>## [1] &quot;/home/joshi/Desktop/work/workshops/2023-June-Introduction-to-R-for-Bioinformatics/R&quot;</code></pre>
+<pre><code>## [1] &quot;/home/joshi/Desktop/work/workshops/2024-March-Introduction-to-R-for-Bioinformatics/R&quot;</code></pre>
 <pre class="r colsel"><code># to set a different working directory, use setwd
 #setwd(&quot;/Users/jli/Desktop&quot;)
 
@@ -1210,6 +1212,9 @@ rep(1:3, times=3)</code></pre>
 <pre><code>## [1] 1 2 3 1 2 3 1 2 3</code></pre>
 <pre class="r colsel"><code>rep(1:3, each=3)</code></pre>
 <pre><code>## [1] 1 1 1 2 2 2 3 3 3</code></pre>
+<pre class="r colsel"><code># get the unique values in a vector
+unique(c(4,4,4,5,5,5,6,6,6))</code></pre>
+<pre><code>## [1] 4 5 6</code></pre>
 <pre class="r colsel"><code># to get help information on a function in R: ?function.name
 ?seq
 ?sort
@@ -1437,7 +1442,7 @@ y
 x &amp;&amp; y
 </th>
 <th style="text-align:center;">
-x || y
+x &amp;#124;&amp;#124; y
 </th>
 </tr>
 </thead>
@@ -1513,7 +1518,7 @@ Graduation Rate is less than 40%.</p>
 <li>A vector of numbers 1 through 15 in increments of 0.2</li>
 <li>A 5x5 matrix using the first 25 letters of the alphabet. (Hint: look
 at built-in constants)</li>
-<li>The first 10 elements of the built-in data frame “mtcars”.</li>
+<li>The first 10 rows of the built-in data frame “mtcars”.</li>
 </ol>
 </div>
 </div>
@@ -1565,5 +1570,6 @@ $(document).ready(function () {
 
 </body>
 </html>
+```
 
 

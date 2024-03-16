@@ -228,25 +228,25 @@ lapply(1:dim(data3)[1], function(x){sum(data3[x,])})
 
 ```
 ## [[1]]
-## [1] 2.035963
+## [1] 0.201129
 ## 
 ## [[2]]
-## [1] 1.514792
+## [1] 2.38469
 ## 
 ## [[3]]
-## [1] -0.01635569
+## [1] 0.1755148
 ## 
 ## [[4]]
-## [1] -1.877682
+## [1] -5.253224
 ## 
 ## [[5]]
-## [1] -5.900493
+## [1] 0.525673
 ## 
 ## [[6]]
-## [1] 0.8841496
+## [1] -2.163033
 ## 
 ## [[7]]
-## [1] -1.084613
+## [1] 1.899978
 ```
 
 ```{.r .colsel}
@@ -255,8 +255,7 @@ apply(data3, MARGIN=1, sum)
 ```
 
 ```
-## [1]  2.03596280  1.51479170 -0.01635569 -1.87768180 -5.90049304  0.88414957
-## [7] -1.08461324
+## [1]  0.2011290  2.3846898  0.1755148 -5.2532237  0.5256730 -2.1630328  1.8999776
 ```
 
 ```{.r .colsel}
@@ -268,33 +267,29 @@ lapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] 0.3087698
+## [1] -0.6965254
 ## 
 ## [[2]]
-## [1] 0.1803529
+## [1] 0.3774319
 ## 
 ## [[3]]
-## [1] NaN
+## [1] -0.7556861
 ## 
 ## [[4]]
 ## [1] NaN
 ## 
 ## [[5]]
-## [1] NaN
+## [1] -0.2792843
 ## 
 ## [[6]]
-## [1] -0.05347426
+## [1] NaN
 ## 
 ## [[7]]
-## [1] NaN
+## [1] 0.2787485
 ```
 
 ##### The function sapply() works like function lapply(), but tries to simplify the output to the simplest data structure possible. As a matter of fact, sapply() is a "wrapper" function for lapply(). By default, it returns a vector.
@@ -311,15 +306,10 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
-## [1]  0.30876984  0.18035292         NaN         NaN         NaN -0.05347426
-## [7]         NaN
+## [1] -0.6965254  0.3774319 -0.7556861        NaN -0.2792843        NaN  0.2787485
 ```
 
 ##### If the "simplify" parameter is turned off, sapply() will produced exactly the same results as lapply(), in the form of a list. By default, "simplify" is turned on.
@@ -332,33 +322,29 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))}, simplify=FALSE)
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
-
-## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] 0.3087698
+## [1] -0.6965254
 ## 
 ## [[2]]
-## [1] 0.1803529
+## [1] 0.3774319
 ## 
 ## [[3]]
-## [1] NaN
+## [1] -0.7556861
 ## 
 ## [[4]]
 ## [1] NaN
 ## 
 ## [[5]]
-## [1] NaN
+## [1] -0.2792843
 ## 
 ## [[6]]
-## [1] -0.05347426
+## [1] NaN
 ## 
 ## [[7]]
-## [1] NaN
+## [1] 0.2787485
 ```
 
 #### The function tapply() applys a function to each subset of a vector based on a second vector of factors.
@@ -619,7 +605,7 @@ biocLite(c("devtools", "tidyverse","bsseq","DSS"))
 
 ```{.r .colsel}
 install.packages("ggplot2")
-install.packages(c("kableExtra","knitr","dplyr"))
+install.packages(c("kableExtra","knitr","dplyr","reshape2"))
 ```
 
 ##### Install from source of github.
@@ -661,7 +647,7 @@ kable(data.frame(tmp, stringsAsFactors=F), align='c') %>% kable_styling(bootstra
 <table class="table table-striped table-hover table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
-   <th style="text-align:left;">   </th>
+   <th style="text-align:left;">  </th>
    <th style="text-align:center;"> Sepal.Length </th>
    <th style="text-align:center;"> Sepal.Width </th>
    <th style="text-align:center;"> Petal.Length </th>
@@ -745,9 +731,9 @@ Download the gapminder dataset to your Rstudio session using the following URL:
 
 https://github.com/ucdavis-bioinformatics-training/2023-February-Introduction-to-R-for-Bioinformatics/raw/main/R/gapminder.csv
 
-Take a look at the dataset. Subset the data to only look at rows from 1982. Then make a scatterplot of the subset, adding x and y labels. Find out how to log scale the x axis from the plot documentation.
+Take a look at the dataset. Subset the data to only look at rows from 1982. Then make a scatterplot of gdp vs life exp (using the plot function) of the subset, adding x and y labels. Find out how to log scale the x axis from the "plot.default" documentation.
 
-Next, make a named vector of continents to colors. Use the vector to add colors to each point based on the continent for that point. Add a legend to the plot showing which colors correspond to which continent.
+Next, make a named vector of colors with the names being the continents. Use the vector to add colors to each point based on the continent for that point. Add a legend to the plot showing which colors correspond to which continent.
 
 Finally, create a function that takes in a numeric vector and a minimum and maximum circle size. Within the function, take the square root of the vector, then use the min-max normalization method to normalize each element of the vector. Once you have normalized data, use those values to scale between the minimum and maximum circle size. Use this function to change the size of the circles to correspond to the population of the country using the "cex" parameter for the scatter plot.
 
