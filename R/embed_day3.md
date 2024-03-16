@@ -228,25 +228,25 @@ lapply(1:dim(data3)[1], function(x){sum(data3[x,])})
 
 ```
 ## [[1]]
-## [1] 0.201129
+## [1] 0.6877539
 ## 
 ## [[2]]
-## [1] 2.38469
+## [1] -1.388866
 ## 
 ## [[3]]
-## [1] 0.1755148
+## [1] 2.877545
 ## 
 ## [[4]]
-## [1] -5.253224
+## [1] -0.6845496
 ## 
 ## [[5]]
-## [1] 0.525673
+## [1] -3.824922
 ## 
 ## [[6]]
-## [1] -2.163033
+## [1] 0.1580957
 ## 
 ## [[7]]
-## [1] 1.899978
+## [1] -1.175713
 ```
 
 ```{.r .colsel}
@@ -255,7 +255,7 @@ apply(data3, MARGIN=1, sum)
 ```
 
 ```
-## [1]  0.2011290  2.3846898  0.1755148 -5.2532237  0.5256730 -2.1630328  1.8999776
+## [1]  0.6877539 -1.3888665  2.8775446 -0.6845496 -3.8249215  0.1580957 -1.1757129
 ```
 
 ```{.r .colsel}
@@ -267,29 +267,33 @@ lapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] -0.6965254
+## [1] -0.162567
 ## 
 ## [[2]]
-## [1] 0.3774319
+## [1] NaN
 ## 
 ## [[3]]
-## [1] -0.7556861
+## [1] 0.4590221
 ## 
 ## [[4]]
 ## [1] NaN
 ## 
 ## [[5]]
-## [1] -0.2792843
-## 
-## [[6]]
 ## [1] NaN
 ## 
+## [[6]]
+## [1] -0.80108
+## 
 ## [[7]]
-## [1] 0.2787485
+## [1] NaN
 ```
 
 ##### The function sapply() works like function lapply(), but tries to simplify the output to the simplest data structure possible. As a matter of fact, sapply() is a "wrapper" function for lapply(). By default, it returns a vector.
@@ -306,10 +310,14 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
-## [1] -0.6965254  0.3774319 -0.7556861        NaN -0.2792843        NaN  0.2787485
+## [1] -0.1625670        NaN  0.4590221        NaN        NaN -0.8010800        NaN
 ```
 
 ##### If the "simplify" parameter is turned off, sapply() will produced exactly the same results as lapply(), in the form of a list. By default, "simplify" is turned on.
@@ -322,29 +330,33 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))}, simplify=FALSE)
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] -0.6965254
+## [1] -0.162567
 ## 
 ## [[2]]
-## [1] 0.3774319
+## [1] NaN
 ## 
 ## [[3]]
-## [1] -0.7556861
+## [1] 0.4590221
 ## 
 ## [[4]]
 ## [1] NaN
 ## 
 ## [[5]]
-## [1] -0.2792843
-## 
-## [[6]]
 ## [1] NaN
 ## 
+## [[6]]
+## [1] -0.80108
+## 
 ## [[7]]
-## [1] 0.2787485
+## [1] NaN
 ```
 
 #### The function tapply() applys a function to each subset of a vector based on a second vector of factors.
@@ -733,7 +745,7 @@ https://github.com/ucdavis-bioinformatics-training/2023-February-Introduction-to
 
 Take a look at the dataset. Subset the data to only look at rows from 1982. Then make a scatterplot of gdp vs life exp (using the plot function) of the subset, adding x and y labels. Find out how to log scale the x axis from the "plot.default" documentation.
 
-Next, make a named vector of colors with the names being the continents. Use the vector to add colors to each point based on the continent for that point. Add a legend to the plot showing which colors correspond to which continent.
+Next, make a named vector of colors with the names being the continents. Use the vector to add colors to each point based on the continent for that point. You may need to look at the "col" section in the "plot.default" documentation. You can also use the "colors()" function to get a list of all of the available colors. Add a legend to the plot showing which colors correspond to which continent.
 
 Finally, create a function that takes in a numeric vector and a minimum and maximum circle size. Within the function, take the square root of the vector, then use the min-max normalization method to normalize each element of the vector. Once you have normalized data, use those values to scale between the minimum and maximum circle size. Use this function to change the size of the circles to correspond to the population of the country using the "cex" parameter for the scatter plot.
 
