@@ -1,7 +1,7 @@
 ---
 title: "R for Biologist - An Introduction to R"
 author: "Bioinformatics Core"
-date: "2024-03-15"
+date: "2024-03-16"
 output:
     html_document:
         keep_md: TRUE
@@ -21,6 +21,15 @@ background-color: lightyellow;
 <P style="page-break-before: always">
 
 
+
+```
+## Warning: `includeHTML()` was provided a `path` that appears to be a complete HTML document.
+## ✖ Path: embed_day2.html
+## ℹ Use `tags$iframe()` to include an HTML document. You can either ensure `path` is accessible in your app or document (see e.g. `shiny::addResourcePath()`) and pass the relative path to the `src` argument. Or you can read the contents of `path` and pass the contents to `srcdoc`.
+```
+
+```{=html}
+<!DOCTYPE html>
 
 <html>
 
@@ -1433,7 +1442,7 @@ y
 x &amp;&amp; y
 </th>
 <th style="text-align:center;">
-x &amp;#124;&amp;#124; y
+x || y
 </th>
 </tr>
 </thead>
@@ -1561,5 +1570,6 @@ $(document).ready(function () {
 
 </body>
 </html>
+```
 
 
