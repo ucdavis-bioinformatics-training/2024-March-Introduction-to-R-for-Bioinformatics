@@ -228,25 +228,25 @@ lapply(1:dim(data3)[1], function(x){sum(data3[x,])})
 
 ```
 ## [[1]]
-## [1] 0.6877539
+## [1] 2.8326
 ## 
 ## [[2]]
-## [1] -1.388866
+## [1] 2.296321
 ## 
 ## [[3]]
-## [1] 2.877545
+## [1] -2.978004
 ## 
 ## [[4]]
-## [1] -0.6845496
+## [1] -0.9896983
 ## 
 ## [[5]]
-## [1] -3.824922
+## [1] -0.493145
 ## 
 ## [[6]]
-## [1] 0.1580957
+## [1] -1.701257
 ## 
 ## [[7]]
-## [1] -1.175713
+## [1] -6.009424
 ```
 
 ```{.r .colsel}
@@ -255,7 +255,7 @@ apply(data3, MARGIN=1, sum)
 ```
 
 ```
-## [1]  0.6877539 -1.3888665  2.8775446 -0.6845496 -3.8249215  0.1580957 -1.1757129
+## [1]  2.8326003  2.2963210 -2.9780037 -0.9896983 -0.4931450 -1.7012568 -6.0094243
 ```
 
 ```{.r .colsel}
@@ -271,17 +271,19 @@ lapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] -0.162567
+## [1] 0.4521853
 ## 
 ## [[2]]
-## [1] NaN
+## [1] 0.3610326
 ## 
 ## [[3]]
-## [1] 0.4590221
+## [1] NaN
 ## 
 ## [[4]]
 ## [1] NaN
@@ -290,7 +292,7 @@ lapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## [1] NaN
 ## 
 ## [[6]]
-## [1] -0.80108
+## [1] NaN
 ## 
 ## [[7]]
 ## [1] NaN
@@ -314,10 +316,12 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))})
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
-## [1] -0.1625670        NaN  0.4590221        NaN        NaN -0.8010800        NaN
+## [1] 0.4521853 0.3610326       NaN       NaN       NaN       NaN       NaN
 ```
 
 ##### If the "simplify" parameter is turned off, sapply() will produced exactly the same results as lapply(), in the form of a list. By default, "simplify" is turned on.
@@ -334,17 +338,19 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))}, simplify=FALSE)
 ## Warning in FUN(X[[i]], ...): NaNs produced
 
 ## Warning in FUN(X[[i]], ...): NaNs produced
+
+## Warning in FUN(X[[i]], ...): NaNs produced
 ```
 
 ```
 ## [[1]]
-## [1] -0.162567
+## [1] 0.4521853
 ## 
 ## [[2]]
-## [1] NaN
+## [1] 0.3610326
 ## 
 ## [[3]]
-## [1] 0.4590221
+## [1] NaN
 ## 
 ## [[4]]
 ## [1] NaN
@@ -353,7 +359,7 @@ sapply(1:dim(data3)[1], function(x){log10(sum(data3[x,]))}, simplify=FALSE)
 ## [1] NaN
 ## 
 ## [[6]]
-## [1] -0.80108
+## [1] NaN
 ## 
 ## [[7]]
 ## [1] NaN
@@ -419,9 +425,9 @@ Here, we are going to write a function to calculate the area of a triangle given
 
 
 ```{.r .colsel}
-my.area <- function(side1=side1, side2=side2, side3=side3){
-	circumference <- (side1 + side2 + side3) / 2
-	area <- sqrt(circumference * (circumference - side1) * (circumference - side2) * (circumference - side3))
+my.area <- function(side1, side2, side3){
+	half_perimeter <- (side1 + side2 + side3) / 2
+	area <- sqrt(half_perimeter * (half_perimeter - side1) * (half_perimeter - side2) * (half_perimeter - side3))
 	return(area)
 }
 

@@ -253,9 +253,9 @@ Even though there are a lot of R packages available, there are always situations
 Here, we are going to write a function to calculate the area of a triangle given the lengths of three sides.
 
 ```{r}
-my.area <- function(side1=side1, side2=side2, side3=side3){
-	circumference <- (side1 + side2 + side3) / 2
-	area <- sqrt(circumference * (circumference - side1) * (circumference - side2) * (circumference - side3))
+my.area <- function(side1, side2, side3){
+	half_perimeter <- (side1 + side2 + side3) / 2
+	area <- sqrt(half_perimeter * (half_perimeter - side1) * (half_perimeter - side2) * (half_perimeter - side3))
 	return(area)
 }
 
